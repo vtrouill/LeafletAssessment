@@ -1,0 +1,22 @@
+---
+title: "religious building"
+author: "vincent trouillet"
+date: "31 mai 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## map of 108 religious buildings in Paris
+
+
+
+```{r leatflet, echo=TRUE}
+library("leaflet")
+data_church<-read.csv("eglises.csv")
+leaflet()%>%addTiles%>%addMarkers(lat=data_church$lat,lng=data_church$lon,popup =data_church$name, clusterOptions=markerClusterOptions )
+```
+
+
